@@ -1,21 +1,32 @@
 package com.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Candidature
 {
-    private int numeroEtudiant;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int idCandidature;
+    @ManyToOne
+    private Etudiant etudiant;
+    @ManyToOne
     private Ecole ecoleDestination;
+    @Column(name = "noteorigine")
     private int noteOrigine;
+    @Column(name = "notedestination")
     private int noteDestination;
+    @Column(name = "score")
     private int score;
 
-    public int getNumeroEtudiant()
+    public Etudiant getEtudiant()
     {
-        return numeroEtudiant;
+        return etudiant;
     }
 
-    public void setNumeroEtudiant(int numeroEtudiant)
+    public void setEtudiant(Etudiant etudiant)
     {
-        this.numeroEtudiant = numeroEtudiant;
+        this.etudiant = etudiant;
     }
 
     public Ecole getEcoleDestination()

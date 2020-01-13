@@ -1,11 +1,17 @@
 package com.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Etudiant extends Personne
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int numeroEtudiant;
+    @Column(name = "moyenne")
     private int moyenne;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "etudiant")
     private List<Candidature> candidatures;
 
     public int getNumeroEtudiant()

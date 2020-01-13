@@ -1,8 +1,14 @@
 package com.model;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Personne
 {
+    @Column(name = "nom")
     private String nom;
+    @Column(name = "prenom")
     private String prenom;
 
     public String getNom()

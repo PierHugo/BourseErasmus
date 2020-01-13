@@ -1,9 +1,10 @@
 package com.view;
 
+import com.model.Etudiant;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Scanner;
 
 public class Main
 {
@@ -21,15 +22,11 @@ public class Main
             throw new ExceptionInInitializerError(ex);
         }
 
-/*
         em.getTransaction().begin();
-        em.persist();
-        em.getTransaction().commit();
-*/
+        Etudiant etu1 = new Etudiant();
+        em.persist(etu1);
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Veuillez saisir un mot :");
-        String str = sc.nextLine();
-        System.out.println("Vous avez saisi : " + str);
+        em.getTransaction().commit();
+
     }
 }

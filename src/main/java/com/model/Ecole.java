@@ -1,14 +1,24 @@
 package com.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Ecole
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idEcole;
+    @Column(name = "nom")
     private String nom;
-    private List<Enseignement> enseignements;
-    private int idProfesseur;
+    @Column(name = "nbplaces")
     private int nbPlaces;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ecole")
+    private List<Enseignement> enseignements;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "ecole")
+    private Professeur professeur;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ecoleDestination")
+    private List<Candidature> candidatures;
 
     public int getIdEcole()
     {
@@ -30,6 +40,16 @@ public class Ecole
         this.nom = nom;
     }
 
+    public int getNbPlaces()
+    {
+        return nbPlaces;
+    }
+
+    public void setNbPlaces(int nbPlaces)
+    {
+        this.nbPlaces = nbPlaces;
+    }
+
     public List<Enseignement> getEnseignements()
     {
         return enseignements;
@@ -40,23 +60,23 @@ public class Ecole
         this.enseignements = enseignements;
     }
 
-    public int getIdProfesseur()
+    public Professeur getProfesseur()
     {
-        return idProfesseur;
+        return professeur;
     }
 
-    public void setIdProfesseur(int idProfesseur)
+    public void setProfesseur(Professeur professeur)
     {
-        this.idProfesseur = idProfesseur;
+        this.professeur = professeur;
     }
 
-    public int getNbPlaces()
+    public List<Candidature> getCandidatures()
     {
-        return nbPlaces;
+        return candidatures;
     }
 
-    public void setNbPlaces(int nbPlaces)
+    public void setCandidatures(List<Candidature> candidatures)
     {
-        this.nbPlaces = nbPlaces;
+        this.candidatures = candidatures;
     }
 }

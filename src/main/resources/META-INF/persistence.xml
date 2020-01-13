@@ -4,8 +4,12 @@
     <persistence-unit name="test">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+        <class>com.model.Candidature</class>
+        <class>com.model.Ecole</class>
+        <class>com.model.Enseignement</class>
         <class>com.model.Etudiant</class>
-
+        <class>com.model.Personne</class>
+        <class>com.model.Professeur</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"
@@ -17,7 +21,7 @@
             <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
             <property value="org.hibernate.dialect.MySQL5Dialect" name="hibernate.dialect"/>
 
-            <!--            <property name="hibernate.hbm2ddl.auto" value="create"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
 
         </properties>
     </persistence-unit>

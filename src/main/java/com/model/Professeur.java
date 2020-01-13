@@ -1,9 +1,15 @@
 package com.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Professeur
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idProfesseur;
-    private int idEcole;
+    @OneToOne
+    private Ecole ecole;
 
     public int getIdProfesseur()
     {
@@ -15,13 +21,13 @@ public class Professeur
         this.idProfesseur = idProfesseur;
     }
 
-    public int getIdEcole()
+    public Ecole getEcole()
     {
-        return idEcole;
+        return ecole;
     }
 
-    public void setIdEcole(int idEcole)
+    public void setEcole(Ecole ecole)
     {
-        this.idEcole = idEcole;
+        this.ecole = ecole;
     }
 }
