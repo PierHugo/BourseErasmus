@@ -1,16 +1,38 @@
-package main.java.com.view;
+package com.view;
 
-import main.java.com.controler.Controler;
+import com.model.Etudiant;
 
-import javax.swing.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-public class Main {
-    public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
+public class Main
+{
+
+
+    private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+    private static EntityManager em;
+
+
+    public static void main(String[] args)
+    {
+
+        try
+        {
+            em = entityManagerFactory.createEntityManager();
+        } catch (Throwable ex)
+        {
+            System.err.println("Failed to create sessionFactory object." + ex);
+            throw new ExceptionInInitializerError(ex);
         }
-        new Thread(Controler::new).run();
+
+        em.getTransaction().begin();
+
+        Etudiant etu1 = new Etudiant("PH", "Carpentier");
+        em.persist(etu1);
+
+        em.getTransaction().commit();
+
     }
+
 }
