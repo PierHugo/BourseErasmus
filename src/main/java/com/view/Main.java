@@ -3,6 +3,7 @@ package com.view;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Scanner;
 
 public class Main
 {
@@ -20,11 +21,15 @@ public class Main
             throw new ExceptionInInitializerError(ex);
         }
 
+/*
         em.getTransaction().begin();
-
-        em.persist(null);
-
+        em.persist();
         em.getTransaction().commit();
+*/
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Veuillez saisir un mot :");
+        String str = sc.nextLine();
+        System.out.println("Vous avez saisi : " + str);
     }
 }
