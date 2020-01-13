@@ -8,15 +8,11 @@ import javax.persistence.Persistence;
 
 public class Main
 {
-
-
     private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
     private static EntityManager em;
 
-
     public static void main(String[] args)
     {
-
         try
         {
             em = entityManagerFactory.createEntityManager();
