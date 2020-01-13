@@ -1,61 +1,40 @@
 package com.model;
 
-import javax.persistence.*;
+import java.util.List;
 
-
-@Entity
-public class Etudiant
+public class Etudiant extends Personne
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "last_name")
-    private String lastName;
+    private int numeroEtudiant;
+    private int moyenne;
+    private List<Candidature> candidatures;
 
-    public Etudiant()
+    public int getNumeroEtudiant()
     {
+        return numeroEtudiant;
     }
 
-    public Etudiant(int id)
+    public void setNumeroEtudiant(int numeroEtudiant)
     {
-        this.id = id;
+        this.numeroEtudiant = numeroEtudiant;
     }
 
-    public Etudiant(String fname, String lname)
+    public int getMoyenne()
     {
-        this.firstName = fname;
-        this.lastName = lname;
+        return moyenne;
     }
 
-    public int getId()
+    public void setMoyenne(int moyenne)
     {
-        return id;
+        this.moyenne = moyenne;
     }
 
-    public void setId(int id)
+    public List<Candidature> getCandidatures()
     {
-        this.id = id;
+        return candidatures;
     }
 
-    public String getFirstName()
+    public void setCandidatures(List<Candidature> candidatures)
     {
-        return firstName;
-    }
-
-    public void setFirstName(String first_name)
-    {
-        this.firstName = first_name;
-    }
-
-    public String getLastName()
-    {
-        return lastName;
-    }
-
-    public void setLastName(String last_name)
-    {
-        this.lastName = last_name;
+        this.candidatures = candidatures;
     }
 }

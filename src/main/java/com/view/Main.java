@@ -1,7 +1,5 @@
 package com.view;
 
-import com.model.Etudiant;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,11 +22,9 @@ public class Main
 
         em.getTransaction().begin();
 
-        Etudiant etu1 = new Etudiant("PH", "Carpentier");
-        em.persist(etu1);
+        em.persist(null);
 
         em.getTransaction().commit();
 
     }
-
 }
