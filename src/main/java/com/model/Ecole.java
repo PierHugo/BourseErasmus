@@ -30,6 +30,7 @@ public class Ecole
         this.nom = nom;
         this.nbPlaces = nbPlaces;
         this.professeur = professeur;
+        this.nbPlaces = nbPlaces;
         enseignements = new ArrayList<>();
         candidatures = new ArrayList<>();
     }
@@ -100,8 +101,7 @@ public class Ecole
     }
 
     public void supprimerCandidature(Candidature candidature){
-        if(candidatures.contains(candidature))
-            candidatures.remove(candidature);
+        candidatures.remove(candidature);
     }
 
     public void ajouterEnseignement(Enseignement enseignement) {
@@ -110,7 +110,6 @@ public class Ecole
     }
 
     public void supprimerEnseignement(Enseignement enseignement){
-        if(enseignements.contains(enseignement))
-            enseignements.remove(enseignement);
+        enseignements.remove(enseignement);
     }
 }

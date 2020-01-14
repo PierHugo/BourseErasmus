@@ -32,8 +32,8 @@ public abstract class JeuDeDonnees
 
         // Creation Etudiants
         em.getTransaction().begin();
-        Etudiant erwann = new Etudiant("PIEDLOUP", "Erwann", 15);
-        Etudiant ph = new Etudiant("CARPENTIER", "Pier-Hugo", 12);
+        Etudiant erwann = new Etudiant("PIEDLOUP", "Erwann", 21708333, 15);
+        Etudiant ph = new Etudiant("CARPENTIER", "Pier-Hugo", 21708222, 12);
         em.persist(erwann);
         em.persist(ph);
         em.getTransaction().commit();

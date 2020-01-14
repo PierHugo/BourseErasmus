@@ -23,7 +23,7 @@ public class DAOEtudiant
 
     public static List<Etudiant> getEtudiantsFromNumeroEtudiant(long parameter)
     {
-        Query query = em.createQuery("SELECT e FROM Etudiant e where numeroEtudiant = :numeroEtudiant");
+        Query query = em.createQuery("SELECT e FROM " + nomBase + " e where numeroEtudiant = :numeroEtudiant");
         query.setParameter("numeroEtudiant", parameter);
 
         List<Etudiant> results = query.getResultList();
