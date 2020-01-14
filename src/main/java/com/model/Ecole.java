@@ -28,6 +28,7 @@ public class Ecole
     public Ecole(String nom, int nbPlaces, Professeur professeur)
     {
         this.nom = nom;
+        this.nbPlaces = nbPlaces;
         this.professeur = professeur;
         enseignements = new ArrayList<>();
         candidatures = new ArrayList<>();
@@ -91,5 +92,25 @@ public class Ecole
     public void setCandidatures(List<Candidature> candidatures)
     {
         this.candidatures = candidatures;
+    }
+
+    public void ajouterCandidature(Candidature candidature) {
+        if(!candidatures.contains(candidature))
+            candidatures.add(candidature);
+    }
+
+    public void supprimerCandidature(Candidature candidature){
+        if(candidatures.contains(candidature))
+            candidatures.remove(candidature);
+    }
+
+    public void ajouterEnseignement(Enseignement enseignement) {
+        if(!enseignements.contains(enseignement))
+            enseignements.add(enseignement);
+    }
+
+    public void supprimerEnseignement(Enseignement enseignement){
+        if(enseignements.contains(enseignement))
+            enseignements.remove(enseignement);
     }
 }

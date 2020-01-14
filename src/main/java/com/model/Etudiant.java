@@ -8,8 +8,8 @@ import java.util.List;
 public class Etudiant extends Personne
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int numeroEtudiant;
+    @Column (name = "numeroEtudiant")
+    private long numeroEtudiant;
     @Column(name = "moyenne")
     private double moyenne;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "etudiant")
@@ -20,29 +20,31 @@ public class Etudiant extends Personne
         super();
     }
 
-    public Etudiant(String nom, String prenom)
+    public Etudiant(String nom, String prenom, long numeroEtudiant)
     {
         super(nom, prenom);
+        this.numeroEtudiant = numeroEtudiant;
         candidatures = new ArrayList<>(2)
         {
         };
     }
 
-    public Etudiant(String nom, String prenom, double moyenne)
+    public Etudiant(String nom, String prenom, long numeroEtudiant ,double moyenne)
     {
         super(nom, prenom);
+        this.numeroEtudiant = numeroEtudiant;
         this.moyenne = moyenne;
         candidatures = new ArrayList<>(2)
         {
         };
     }
 
-    public int getNumeroEtudiant()
+    public long getNumeroEtudiant()
     {
         return numeroEtudiant;
     }
 
-    public void setNumeroEtudiant(int numeroEtudiant)
+    public void setNumeroEtudiant(long numeroEtudiant)
     {
         this.numeroEtudiant = numeroEtudiant;
     }
@@ -66,4 +68,18 @@ public class Etudiant extends Personne
     {
         this.candidatures = candidatures;
     }
-}
+
+    public void ajouterCandidature(Candidature candidature) throws Exception {
+        if (candidatures.size() < 2) {
+            candidatures.add(candidature);
+        } else {
+            throw new Exception();
+        }
+    }
+
+        public void supprimerCandidature(Candidature candidature) {
+            if(candidatures.contains(candidature))
+                candidatures.remove(candidature);
+        }
+    }
+
