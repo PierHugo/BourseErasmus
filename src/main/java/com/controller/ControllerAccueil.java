@@ -18,5 +18,20 @@ public class ControllerAccueil {
     }
 
 
+    public void RenvoyerVers(int intAction) {
+        switch(intAction) {
+            case 1:
+                controllerMain.lancerAjouterCandidature();
+                return;
+            case 2:
+                controllerMain.lancerAfficherCandidatures();
+                return;
+            case 3:
+                controllerMain.lancerAfficherEcoles();
+                return;
+            case 4:
+                controllerMain.fermerApplication();
 
+        }
+    }
 }

@@ -21,7 +21,7 @@
             <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
             <property value="org.hibernate.dialect.MySQL5Dialect" name="hibernate.dialect"/>
 
-<!--            <property name="hibernate.hbm2ddl.auto" value="create"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
 
         </properties>
     </persistence-unit>
