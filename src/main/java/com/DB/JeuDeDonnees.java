@@ -16,8 +16,8 @@ public abstract class JeuDeDonnees
 
         // Creation Professeurs
         em.getTransaction().begin();
-        Professeur gilou = new Professeur("VENTURINI", "Gilles", polytech);
-        Professeur polonais = new Professeur("VODKA", "Vladimir", lodz);
+        Professeur gilou = new Professeur("VENTURINI", "Gilles");
+        Professeur polonais = new Professeur("VODKA", "Vladimir");
         em.persist(gilou);
         em.persist(polonais);
         em.getTransaction().commit();

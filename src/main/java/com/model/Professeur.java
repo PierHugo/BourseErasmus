@@ -21,12 +21,6 @@ public class Professeur extends Personne
         super(nom, prenom);
     }
 
-    public Professeur(String nom, String prenom, Ecole ecole)
-    {
-        super(nom, prenom);
-        this.ecole = ecole;
-    }
-
     public int getIdProfesseur()
     {
         return idProfesseur;

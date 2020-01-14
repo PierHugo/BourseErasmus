@@ -1,14 +1,8 @@
 package com.view;
 
-import com.model.Etudiant;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 public class Main
 {
-    private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
+/*    private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
     private static EntityManager em;
 
     public static void main(String[] args)
@@ -28,5 +22,11 @@ public class Main
 
         em.getTransaction().commit();
 
+    }*/
+
+    public static void main(String[] args)
+    {
+
     }
+
 }
