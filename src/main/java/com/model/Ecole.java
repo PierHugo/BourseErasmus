@@ -1,6 +1,7 @@
 package com.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,18 @@ public class Ecole
     private Professeur professeur;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ecoleDestination")
     private List<Candidature> candidatures;
+
+    public Ecole()
+    {
+    }
+
+    public Ecole(String nom, int nbPlaces, Professeur professeur)
+    {
+        this.nom = nom;
+        this.professeur = professeur;
+        enseignements = new ArrayList<>();
+        candidatures = new ArrayList<>();
+    }
 
     public int getIdEcole()
     {

@@ -13,11 +13,33 @@ public class Candidature
     @ManyToOne
     private Ecole ecoleDestination;
     @Column(name = "noteorigine")
-    private int noteOrigine;
+    private double noteOrigine;
     @Column(name = "notedestination")
-    private int noteDestination;
+    private double noteDestination;
     @Column(name = "score")
-    private int score;
+    private double score;
+
+    public Candidature()
+    {
+    }
+
+    public Candidature(Etudiant etudiant, Ecole ecoleDestination, double noteOrigine, double noteDestination)
+    {
+        this.etudiant = etudiant;
+        this.ecoleDestination = ecoleDestination;
+        this.noteOrigine = noteOrigine;
+        this.noteDestination = noteDestination;
+    }
+
+    public int getIdCandidature()
+    {
+        return idCandidature;
+    }
+
+    public void setIdCandidature(int idCandidature)
+    {
+        this.idCandidature = idCandidature;
+    }
 
     public Etudiant getEtudiant()
     {
@@ -39,7 +61,7 @@ public class Candidature
         this.ecoleDestination = ecoleDestination;
     }
 
-    public int getNoteOrigine()
+    public double getNoteOrigine()
     {
         return noteOrigine;
     }
@@ -49,7 +71,7 @@ public class Candidature
         this.noteOrigine = noteOrigine;
     }
 
-    public int getNoteDestination()
+    public double getNoteDestination()
     {
         return noteDestination;
     }
@@ -59,13 +81,13 @@ public class Candidature
         this.noteDestination = noteDestination;
     }
 
-    public int getScore()
+    public double getScore()
     {
         return score;
     }
 
-    public void setScore(int score)
+    public void calculerScore(double score)
     {
-        this.score = score;
+        score = (noteDestination + noteOrigine + etudiant.getMoyenne()) / 3;
     }
 }

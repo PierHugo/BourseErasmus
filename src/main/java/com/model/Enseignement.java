@@ -18,6 +18,19 @@ public class Enseignement
     @ManyToOne
     private Ecole ecole;
 
+    public Enseignement()
+    {
+    }
+
+    public Enseignement(String nom, int credits, int heures, Ecole ecole)
+    {
+        this.nom = nom;
+        this.credits = credits;
+        this.heures = heures;
+        this.ecole = ecole;
+    }
+
+
     public String getNom()
     {
         return nom;
