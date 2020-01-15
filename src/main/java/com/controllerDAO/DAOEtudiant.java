@@ -21,13 +21,17 @@ public class DAOEtudiant
         return em.createQuery("SELECT e FROM " + nomBase + " e").getResultList();
     }
 
-    public static List<Etudiant> getEtudiantsFromNumeroEtudiant(long parameter)
+    public static Etudiant getEtudiantFromNumeroEtudiant(long parameter)
     {
         Query query = em.createQuery("SELECT e FROM " + nomBase + " e where numeroEtudiant = :numeroEtudiant");
         query.setParameter("numeroEtudiant", parameter);
 
         List<Etudiant> results = query.getResultList();
 
-        return results;
+        if (results.size() > 0)
+            return results.get(0);
+        else
+            return null;
     }
+
 }

@@ -98,6 +98,7 @@ public class Candidature
         String noteOrigine = "", noteDestination = "";
         noteOrigine = String.valueOf(this.getNoteOrigine());
         noteDestination = String.valueOf(this.getNoteDestination());
-        return this.getEtudiant().toString() + " ( moyenne : " + this.getEtudiant().getMoyenne() + ", note responsable Local : " + noteOrigine + ", note responsable Ecole : " + noteDestination + ", score : " + this.calculerScore() + " )";
+        String ecoleDestination = this.getEcoleDestination().getNom();
+        return this.getEtudiant().toString() + " / Destination : " + ecoleDestination + " ( Moyenne : " + this.getEtudiant().getMoyenne() + ", Note responsable local : " + noteOrigine + ", Note responsable ecole : " + noteDestination + ", Score : " + this.calculerScore() + " )";
     }
 }

@@ -24,7 +24,7 @@ public abstract class JeuDeDonnees
         //Creation Ecoles
         em.getTransaction().begin();
         Ecole polytech = new Ecole("Polytech Tours", 100, gilou);
-        Ecole lodz = new Ecole("Polytecknica Lodza", 100, polonais);
+        Ecole lodz = new Ecole("Lodz", 100, polonais);
         em.persist(polytech);
         em.persist(lodz);
         em.getTransaction().commit();

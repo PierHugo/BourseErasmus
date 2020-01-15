@@ -6,6 +6,7 @@ import com.controllerDAO.DAOEnseignement;
 import com.controllerDAO.DAOEtudiant;
 import com.model.Candidature;
 import com.model.Ecole;
+import com.model.Etudiant;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -45,8 +46,9 @@ public class ControllerMain
 
     }
 
-
-    public void lancerAjouterCandidature() {
+    public void lancerAjouterCandidature()
+    {
+        controllerAjouterCandidature.Affichage();
     }
 
     public void lancerAfficherCandidatures() {
@@ -71,9 +73,26 @@ public class ControllerMain
         return DAOCandidature.getAllCandidatures();
     }
 
-
     public List<Ecole> getAllEcole()
     {
         return DAOEcole.getAllEcoles();
+    }
+
+    public Etudiant getEtudiant(long numero)
+    {
+        return DAOEtudiant.getEtudiantFromNumeroEtudiant(numero);
+    }
+
+    public Ecole getEcole(String nom)
+    {
+        return DAOEcole.getEcoleFromNom(nom);
+    }
+
+    public void creerCandidature(Etudiant etudiant, Ecole ecole, double noteOrigine, double noteDestination)
+    {
+        em.getTransaction().begin();
+        Candidature candidature = new Candidature(etudiant, ecole, noteOrigine, noteDestination);
+        em.persist(candidature);
+        em.getTransaction().commit();
     }
 }
