@@ -86,9 +86,10 @@ public class Candidature
         return score;
     }
 
-    public void calculerScore(double score)
+    public double calculerScore()
     {
-        score = (noteDestination + noteOrigine + etudiant.getMoyenne()) / 3;
+        double score = (noteDestination + noteOrigine + etudiant.getMoyenne()) / 3;
+        return score;
     }
 
     @Override
@@ -97,6 +98,6 @@ public class Candidature
         String noteOrigine = "", noteDestination = "";
         noteOrigine = String.valueOf(this.getNoteOrigine());
         noteDestination = String.valueOf(this.getNoteDestination());
-        return this.getEtudiant().toString() + " ( moyenne : " + this.getEtudiant().getMoyenne() + ", note responsable Local : " + noteOrigine + ", note responsable Ecole : " + noteDestination + ", score : " + this.getScore(calculerScore()) + " )";
+        return this.getEtudiant().toString() + " ( moyenne : " + this.getEtudiant().getMoyenne() + ", note responsable Local : " + noteOrigine + ", note responsable Ecole : " + noteDestination + ", score : " + this.calculerScore() + " )";
     }
 }
