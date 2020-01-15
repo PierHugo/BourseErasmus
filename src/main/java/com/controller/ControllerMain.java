@@ -5,7 +5,7 @@ import com.controllerDAO.DAOEcole;
 import com.controllerDAO.DAOEnseignement;
 import com.controllerDAO.DAOEtudiant;
 import com.model.Candidature;
-import com.view.VueAccueil;
+import com.model.Ecole;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -30,12 +30,13 @@ public class ControllerMain
 
     private ControllerAjouterCandidature controllerAjouterCandidature;
 
-    public ControllerMain(EntityManager em) {
-        this.em = em;
-        daoCandidature = new DAOCandidature(this.em);
-        daoEnseignement = new DAOEnseignement(this.em);
-        daoEtudiant = new DAOEtudiant(this.em);
-        daoEcole = new DAOEcole(this.em);
+    public ControllerMain(EntityManager em)
+    {
+        ControllerMain.em = em;
+        daoCandidature = new DAOCandidature(ControllerMain.em);
+        daoEnseignement = new DAOEnseignement(ControllerMain.em);
+        daoEtudiant = new DAOEtudiant(ControllerMain.em);
+        daoEcole = new DAOEcole(ControllerMain.em);
 
         controllerAccueil = new ControllerAccueil(this);
         controllerAfficherCandidatures = new ControllerAfficherCandidatures(this);
@@ -53,18 +54,26 @@ public class ControllerMain
     }
 
     public void lancerAfficherEcoles() {
+        controllerAfficherEcoles.Affichage();
     }
 
-    public void lancerAccueil() {
+    public void lancerAccueil()
+    {
         controllerAccueil.Affichage();
     }
 
-    public void fermerApplication() {
+    public void fermerApplication()
+    {
     }
 
-    public List<Candidature> getAllCandidatures() {
-        return daoCandidature.getAllCandidatures();
+    public List<Candidature> getAllCandidatures()
+    {
+        return DAOCandidature.getAllCandidatures();
     }
 
 
+    public List<Ecole> getAllEcole()
+    {
+        return DAOEcole.getAllEcoles();
+    }
 }

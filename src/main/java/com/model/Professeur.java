@@ -40,4 +40,10 @@ public class Professeur extends Personne
     {
         this.ecole = ecole;
     }
+
+    @Override
+    public String toString()
+    {
+        return getNom() + " " + getPrenom();
+    }
 }

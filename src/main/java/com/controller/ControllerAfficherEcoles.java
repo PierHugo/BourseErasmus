@@ -1,15 +1,47 @@
 package com.controller;
 
-import com.view.VueAfficherEcoles;
+import com.model.Ecole;
+import com.view.VueAfficherEcole;
 
-public class ControllerAfficherEcoles {
+import java.util.List;
+
+public class ControllerAfficherEcoles
+{
 
     private ControllerMain controllerMain;
 
-    private VueAfficherEcoles vueAfficherEcoles;
+    private VueAfficherEcole vueAfficherEcole;
 
-    public ControllerAfficherEcoles(ControllerMain controllerMain) {
+    public ControllerAfficherEcoles(ControllerMain controllerMain)
+    {
         this.controllerMain = controllerMain;
-        vueAfficherEcoles = new VueAfficherEcoles(this);
+        vueAfficherEcole = new VueAfficherEcole(this);
+    }
+
+    public List<Ecole> getAllEcoles()
+    {
+        return this.controllerMain.getAllEcole();
+    }
+
+    public void Affichage()
+    {
+        vueAfficherEcole.Affichage();
+    }
+
+    public void Redirection(int intAction)
+    {
+        switch (intAction)
+        {
+            case 1:
+                this.controllerMain.lancerAccueil();
+                return;
+            case 2:
+                return;
+        }
+    }
+
+    public ControllerMain getControllerMain()
+    {
+        return controllerMain;
     }
 }

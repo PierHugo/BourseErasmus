@@ -16,7 +16,7 @@ public class Ecole
     private int nbPlaces;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ecole")
     private List<Enseignement> enseignements;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "ecole")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Professeur professeur;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ecoleDestination")
     private List<Candidature> candidatures;
@@ -104,12 +104,20 @@ public class Ecole
         candidatures.remove(candidature);
     }
 
-    public void ajouterEnseignement(Enseignement enseignement) {
-        if(!enseignements.contains(enseignement))
+    public void ajouterEnseignement(Enseignement enseignement)
+    {
+        if (!enseignements.contains(enseignement))
             enseignements.add(enseignement);
     }
 
-    public void supprimerEnseignement(Enseignement enseignement){
+    public void supprimerEnseignement(Enseignement enseignement)
+    {
         enseignements.remove(enseignement);
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.nom + " ( nombre de places : " + this.nbPlaces + ", professeur : " + this.getProfesseur().toString() + ")";
     }
 }

@@ -17,13 +17,13 @@ public class MainApp
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
         EntityManager em = entityManagerFactory.createEntityManager();
-//        try
-//        {
-//            JeuDeDonnees.createDatas(em);
-//        } catch (Exception e)
-//        {
-//            System.out.println("Erreur lors de la création de la base de données ou des données :\n-> " + e);
-//        }
+        try
+        {
+            JeuDeDonnees.createDatas(em);
+        } catch (Exception e)
+        {
+            System.out.println("Erreur lors de la création de la base de données ou des données :\n-> " + e);
+        }
 
         /* Application */
         try
@@ -32,8 +32,7 @@ public class MainApp
 
             main.lancerAccueil();
             main.fermerApplication();
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             System.out.println("Erreur lors de l'utilisation de l'application :\n-> " + e);
         }

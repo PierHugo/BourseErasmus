@@ -78,13 +78,13 @@ public class Etudiant extends Personne
     }
 
         public void supprimerCandidature(Candidature candidature) {
-            if(candidatures.contains(candidature))
-                candidatures.remove(candidature);
+            candidatures.remove(candidature);
         }
 
     @Override
-    public String toString() {
-        return getNumeroEtudiant() + " / " + getNom() + " / " + getPrenom();
+    public String toString()
+    {
+        return getNumeroEtudiant() + " / " + getNom() + " " + getPrenom();
     }
 }
 

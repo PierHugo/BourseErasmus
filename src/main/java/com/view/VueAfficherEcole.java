@@ -1,28 +1,28 @@
 package com.view;
 
-import com.controller.ControllerAfficherCandidatures;
-import com.model.Candidature;
+import com.controller.ControllerAfficherEcoles;
+import com.model.Ecole;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class VueAfficherCandidature
+public class VueAfficherEcole
 {
 
-    private ControllerAfficherCandidatures controllerAfficherCandidatures;
+    private ControllerAfficherEcoles controllerAfficherEcoles;
 
-    public VueAfficherCandidature(ControllerAfficherCandidatures controllerAfficherCandidatures)
+    public VueAfficherEcole(ControllerAfficherEcoles controllerAfficherEcoles)
     {
-        this.controllerAfficherCandidatures = controllerAfficherCandidatures;
+        this.controllerAfficherEcoles = controllerAfficherEcoles;
     }
 
     public void Affichage()
     {
         Scanner objetEntree = new Scanner(System.in);
 
-        System.out.println("Voici la liste de toutes les candidatures à ce jour :");
-        List<Candidature> listecandidature = this.controllerAfficherCandidatures.getAllCandidatures();
+        System.out.println("Voici la liste de toutes les Ecoles à ce jour :");
+        List<Ecole> listeEcole = this.controllerAfficherEcoles.getAllEcoles();
 
         ArrayList<String> listeActions = new ArrayList<String>();
         listeActions.add("Retour à l'accueil");
@@ -36,12 +36,11 @@ public class VueAfficherCandidature
         }
 
         int inc = 1;
-        for (Candidature c : listecandidature)
+        for (Ecole e : listeEcole)
         {
-            System.out.println(inc + " - " + c);
+            System.out.println(inc + " - " + e);
             ++inc;
         }
-
 
         output += "\nVeuillez entrer le numéro correspondant à votre choix (exemple : 1) :";
         System.out.println(output);
@@ -67,7 +66,7 @@ public class VueAfficherCandidature
 
         System.out.println("Vous allez être redirigé vers : " + listeActions.get(intAction - 1) + "\n");
 
-        this.controllerAfficherCandidatures.Redirection(intAction);
+        this.controllerAfficherEcoles.Redirection(intAction);
     }
 
 }

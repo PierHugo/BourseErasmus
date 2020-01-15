@@ -20,7 +20,7 @@ public class VueAccueil {
 
         listeActions.add("Ajouter une candidature");
         listeActions.add("Voir les candidatures");
-        listeActions.add("Voir les bourses");
+        listeActions.add("Voir les ecoles");
         listeActions.add("Fermer l'application");
 
         String output = "";

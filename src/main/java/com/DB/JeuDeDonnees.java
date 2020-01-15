@@ -11,7 +11,6 @@ public abstract class JeuDeDonnees
 
     public static void createDatas(EntityManager emparam) throws Exception
     {
-
         em = emparam;
 
         // Creation Professeurs
