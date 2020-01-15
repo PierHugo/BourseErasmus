@@ -33,8 +33,14 @@ public abstract class JeuDeDonnees
         em.getTransaction().begin();
         Etudiant erwann = new Etudiant("PIEDLOUP", "Erwann", 21708333, 15);
         Etudiant ph = new Etudiant("CARPENTIER", "Pier-Hugo", 21708222, 12);
+        Etudiant nathan = new Etudiant("COUTON", "Nathan", 21879865, 17.5);
+        Etudiant kilian = new Etudiant("PAQUIER", "Kilian", 21548863, 18.5);
+        Etudiant vincent = new Etudiant("POZZI", "Vincent", 21458767, 15.89);
         em.persist(erwann);
         em.persist(ph);
+        em.persist(nathan);
+        em.persist(kilian);
+        em.persist(vincent);
         em.getTransaction().commit();
 
         // Creation Enseignements
