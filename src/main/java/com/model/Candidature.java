@@ -90,4 +90,13 @@ public class Candidature
     {
         score = (noteDestination + noteOrigine + etudiant.getMoyenne()) / 3;
     }
+
+    public String toString()
+    {
+        String noteOrigine = "", noteDestination = "";
+        noteOrigine = String.valueOf(this.getNoteOrigine());
+        noteDestination = String.valueOf(this.getNoteDestination());
+
+        return this.getEtudiant().toString() + " ( moyenne : " + this.getEtudiant().getMoyenne() + ", note responsable Local : " + noteOrigine + ", note responsable Ecole : " + noteDestination + ")";
+    }
 }
