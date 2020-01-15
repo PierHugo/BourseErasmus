@@ -8,7 +8,7 @@ import java.util.List;
 public class DAOEcole
 {
     private static EntityManager em;
-    private static String nomBase = "ecole";
+    private static String nomBase = "Ecole";
 
     public DAOEcole(EntityManager emparam)
     {

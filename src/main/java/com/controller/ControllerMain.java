@@ -4,9 +4,11 @@ import com.controllerDAO.DAOCandidature;
 import com.controllerDAO.DAOEcole;
 import com.controllerDAO.DAOEnseignement;
 import com.controllerDAO.DAOEtudiant;
+import com.model.Candidature;
 import com.view.VueAccueil;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class ControllerMain
 {
@@ -47,6 +49,7 @@ public class ControllerMain
     }
 
     public void lancerAfficherCandidatures() {
+        controllerAfficherCandidatures.Affichage();
     }
 
     public void lancerAfficherEcoles() {
@@ -57,6 +60,10 @@ public class ControllerMain
     }
 
     public void fermerApplication() {
+    }
+
+    public List<Candidature> getAllCandidatures() {
+        return daoCandidature.getAllCandidatures();
     }
 
 

@@ -12,4 +12,10 @@ public class ControllerAfficherCandidatures {
         this.controllerMain = controllerMain;
         vueAfficherCandidature = new VueAfficherCandidature(this);
     }
+
+    public void Affichage() {
+        vueAfficherCandidature.Affichage();
+    }
+
+    public ControllerMain getControllerMain() {return controllerMain;}
 }

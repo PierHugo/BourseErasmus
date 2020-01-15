@@ -11,7 +11,7 @@ import java.util.List;
 public class DAOCandidature
 {
     private static EntityManager em;
-    private static String nomBase = "candidature";
+    private static String nomBase = "Candidature";
 
     public DAOCandidature(EntityManager emparam)
     {
@@ -20,7 +20,11 @@ public class DAOCandidature
 
     public static List<Candidature> getAllCandidatures()
     {
-        return em.createQuery("SELECT e FROM " + nomBase + " e").getResultList();
+        String queryString = "SELECT c FROM " + nomBase + " c";
+
+        List<Candidature> results = em.createQuery(queryString).getResultList();
+
+        return results;
     }
 
     public static List<Candidature> getCandidaturesFromIdEcole(Ecole parameter)

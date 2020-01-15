@@ -9,7 +9,7 @@ import java.util.List;
 public class DAOEtudiant
 {
     private static EntityManager em;
-    private static String nomBase = "etudiant";
+    private static String nomBase = "Etudiant";
 
     public DAOEtudiant(EntityManager emparam)
     {

@@ -8,7 +8,7 @@ import java.util.List;
 public class DAOProfesseur
 {
     private static EntityManager em;
-    private static String nomBase = "professeur";
+    private static String nomBase = "Professeur";
 
     public DAOProfesseur(EntityManager emparam)
     {

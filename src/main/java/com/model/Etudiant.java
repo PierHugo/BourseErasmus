@@ -81,5 +81,10 @@ public class Etudiant extends Personne
             if(candidatures.contains(candidature))
                 candidatures.remove(candidature);
         }
+
+    @Override
+    public String toString() {
+        return getNumeroEtudiant() + " / " + getNom() + " / " + getPrenom();
     }
+}
 
